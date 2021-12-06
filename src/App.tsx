@@ -24,9 +24,7 @@ const games: Game[] = [
     rules: `The goal of the puzzle is to rotate the tiles on the map to make all
           pipes connected in a single group, with no loops and no dangling
           pipes.
-          The goal of the puzzle is to rotate the tiles on the map to make all
-          pipes connected in a single group, with no loops and no dangling
-          pipes.
+          To rotate, select the tile that you want to rotate and press R on your keyboard or press the rotate button.
           To verify if your solution is correct, click on Verify button.`
   },
   {

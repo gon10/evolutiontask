@@ -16,6 +16,7 @@ const GameCard = ({
     <div className="gameCard">
       <h5>{title}</h5>
       <Link to="/">Go Back</Link>
+      <p>{rules}</p>
       {children}
     </div>
   );
