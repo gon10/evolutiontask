@@ -1,0 +1,14 @@
+.pipe:hover {
+  background-color: gray;
+}
+
+.map {
+  cursor: pointer;
+  max-width: 80vw;
+  max-height: 80vh;
+  overflow: auto;
+}
+
+.selected {
+  background-color: rgb(0, 211, 0);
+}
