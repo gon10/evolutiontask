@@ -62,6 +62,9 @@ const PipePuzzle = () => {
   const handleRotate = (event: any) => {
     socket?.send(`rotate ${selectedPipe}`);
   };
+  const handleManualRotate = (event: any) => {
+    socket?.send(`rotate ${xaxis} ${yaxis}`);
+  };
   const handleSelectLevel = (level: number) => {
     socket?.send(`new ${level}`);
     socket?.send("map");
@@ -94,9 +97,9 @@ const PipePuzzle = () => {
           Chose a level <button onClick={e => handleSelectLevel(1)}>1</button>
           <button onClick={e => handleSelectLevel(2)}>2</button>
           <button onClick={e => handleSelectLevel(3)}>3</button>
-          {/* <button onClick={e => handleSelectLevel(4)}>4</button>
+          <button onClick={e => handleSelectLevel(4)}>4</button>
           <button onClick={e => handleSelectLevel(5)}>5</button>
-          <button onClick={e => handleSelectLevel(6)}>6</button> */}
+          <button onClick={e => handleSelectLevel(6)}>6</button>
         </div>
       )}
       {map && (
@@ -129,21 +132,30 @@ const PipePuzzle = () => {
       )}
       {level !== 0 && (
         <>
-          <button name="rotate" onClick={e => handleRotate(e)}>
-            rotate
-          </button>
-          {/* <input
-              type="number"
-              name="xaxis"
-              onChange={e => handleXInputChange(e)}
-              value={xaxis}
-            ></input>
-            <input
-              type="number"
-              name="yaxis"
-              onChange={e => handleYInputChange(e)}
-              value={yaxis}
-            ></input> */}
+          {level < 4 && (
+            <button name="rotate" onClick={e => handleRotate(e)}>
+              rotate
+            </button>
+          )}
+          {level >= 4 && (
+            <>
+              <button name="rotate" onClick={e => handleManualRotate(e)}>
+                rotate
+              </button>
+              <input
+                type="number"
+                name="xaxis"
+                onChange={e => handleXInputChange(e)}
+                value={xaxis}
+              ></input>
+              <input
+                type="number"
+                name="yaxis"
+                onChange={e => handleYInputChange(e)}
+                value={yaxis}
+              ></input>
+            </>
+          )}
           <button name="verify" onClick={e => handleClick(e)}>
             verify
           </button>
